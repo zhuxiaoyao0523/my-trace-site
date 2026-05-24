@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FF9800" />
+    <title>棘遇｜产品溯源</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <div class="brand" role="banner" aria-label="棘遇">
+          <div class="brand__mark">
+            <img class="brand__logo" src="./assets/jiyu-brand.jpg" alt="棘遇品牌标志" />
+          </div>
+          <div class="brand__text">
+            <div class="brand__name">棘遇</div>
+            <div class="brand__tagline">沙棘：黄土高原的生态卫士，酸甜清爽，也藏着满满营养</div>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="页面导航">
+          <button class="nav__btn is-active" data-page="trace" type="button">
+            <span class="nav__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 8h16M4 12h10M4 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M15 12l3-3m-3 3l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <span>产品溯源</span>
+          </button>
+          <button class="nav__btn" data-page="story" type="button">
+            <span class="nav__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M6 4h12a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M8 8h8M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span>品牌故事</span>
+          </button>
+          <button class="nav__btn" data-page="value" type="button">
+            <span class="nav__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 2v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M7 22h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8.5 8.5c2.5-2.5 4.5-2.5 7 0 2.5 2.5 2.5 4.5 0 7-2.5 2.5-4.5 2.5-7 0-2.5-2.5-2.5-4.5 0-7Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </span>
+            <span>沙棘价值</span>
+          </button>
+          <button class="nav__btn" data-page="ingredients" type="button">
+            <span class="nav__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M10 2h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M9 2v6l-5 8a6 6 0 0 0 5 6h6a6 6 0 0 0 5-6l-5-8V2" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M8 14h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <span>产品成分</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container main" id="main" tabindex="-1">
+      <!-- 产品溯源 -->
+      <section class="page is-active" id="page-trace" data-page="trace">
+        <div class="grid">
+          <div class="card">
+            <h1 class="card__title">产品溯源查询</h1>
+            <p class="card__desc">
+              输入溯源码/批次号，查看该瓶产品对应的采摘信息、产地环境、加工节点与质检摘要。
+            </p>
+
+            <form class="trace-form" id="traceForm">
+              <label class="field">
+                <span class="field__label">溯源码 / 批次号</span>
+                <input
+                  class="field__input"
+                  id="traceInput"
+                  name="code"
+                  inputmode="text"
+                  autocomplete="off"
+                  placeholder="例如：JY-2026-0001"
+                  required
+                />
+              </label>
+              <div class="trace-form__actions">
+                <button class="btn btn--primary" type="submit">查询溯源</button>
+                <button class="btn" id="fillDemo" type="button">填入示例</button>
+              </div>
+            </form>
+
+            <div class="hint">
+              可用示例：<code>JY-2026-0001</code>、<code>JY-2026-0002</code>、<code>JY-2026-0003</code>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title">溯源结果</h2>
+            <div id="traceResult" class="result">
+              <div class="result__empty">
+                暂无结果。请输入溯源码/批次号进行查询。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card--soft">
+          <h2 class="card__title">我们做的不只是“卖货”</h2>
+          <p class="card__desc">
+            棘遇以“生态修复 + 高精技术 + 数字透明”为核心，把黄土高原的生态价值写进每一次消费决策里。
+          </p>
+          <div class="pill-row">
+            <span class="pill">生态价值锚点</span>
+            <span class="pill">超临界 CO₂ 萃取</span>
+            <span class="pill">全链路数字化溯源</span>
+            <span class="pill">轻资产联营</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 品牌故事 -->
+      <section class="page" id="page-story" data-page="story">
+        <div class="card">
+          <h1 class="card__title">品牌故事</h1>
+          <p class="card__desc">
+            棘遇起源于一个朴素的愿望：让“生态卫士”沙棘，不止停留在荒坡绿化的功劳簿上，也能成为真正惠及农户、消费者与环境的高价值产业。
+          </p>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="card">
+            <h2 class="card__title">战略背景</h2>
+            <p class="card__desc">
+              紧扣黄河流域生态保护、乡村振兴与健康中国 2030 等国家战略，把“绿起来”进一步走向“富起来”。
+            </p>
+          </div>
+          <div class="card">
+            <h2 class="card__title">项目定位</h2>
+            <p class="card__desc">
+              立足陕西 500 万亩沙棘林资源，构建“生态修复 + 高精技术 + 数字透明”的全产业链协同模式。
+            </p>
+          </div>
+          <div class="card">
+            <h2 class="card__title">品牌定位</h2>
+            <p class="card__desc">黄土高原生态奇迹的价值开发者。</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card__title">三大产品与服务矩阵</h2>
+          <p class="card__desc">
+            我们围绕三件事做出一套完整体验：<strong>沙棘原浆</strong>、<strong>沙棘油</strong>与<strong>溯源平台</strong>。既好喝、也更安心——每一口都能查得到“来龙去脉”。
+          </p>
+          <div class="pill-row" style="margin-top:12px">
+            <span class="pill">沙棘原浆｜清爽 0 添加</span>
+            <span class="pill">沙棘油｜高精工艺</span>
+            <span class="pill">扫码可查｜关键流程</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 沙棘价值 -->
+      <section class="page" id="page-value" data-page="value">
+        <div class="card">
+          <h1 class="card__title">沙棘价值</h1>
+          <p class="card__desc">
+            沙棘不仅耐旱耐盐碱、适合黄土高原生态修复，也拥有极高营养密度与成分潜力，是功能性食品与药妆原料的重要来源。
+          </p>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="card">
+            <h2 class="card__title">生态修复价值</h2>
+            <p class="card__desc muted">固土保水、抗风沙、改善荒漠化扩展，是黄土高原重要“生态卫士”。</p>
+          </div>
+          <div class="card">
+            <h2 class="card__title">生态参与价值</h2>
+            <p class="card__desc muted">让消费者“买得到、看得到、查得到”，每一次选择都更安心，也更有意义。</p>
+          </div>
+          <div class="card">
+            <h2 class="card__title">生态价值</h2>
+            <p class="card__desc">
+              沙棘是“三北防护林”“退耕还林”等工程的重要树种，能有效固土保水、改善荒漠化扩展。棘遇把产地生态修复成果与产品价值深度绑定，让消费行为转化为生态参与。
+            </p>
+          </div>
+          <div class="card">
+            <h2 class="card__title">产业价值</h2>
+            <p class="card__desc">
+              通过高精提取与标准化品控，把“非标农产品”转化为可复用的高价值原料；同时以数字化溯源提升信任，减少“认知断层”，形成品牌溢价。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 产品成分 -->
+      <section class="page" id="page-ingredients" data-page="ingredients">
+        <div class="card hero">
+          <div class="hero__logo" aria-hidden="true">
+            <img src="./assets/jiyu-brand.jpg" alt="" />
+          </div>
+          <div class="hero__body">
+            <h1 class="card__title">产品成分</h1>
+            <p class="card__desc">
+              以沙棘原浆与沙棘油为核心，主打清爽口感与关键活性成分，成分信息清晰可见。
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="card">
+            <h2 class="card__title">成分</h2>
+            <div class="chips">
+              <span class="chip">Omega-7</span>
+              <span class="chip">沙棘黄酮</span>
+              <span class="chip">维生素 C / E</span>
+              <span class="chip">类胡萝卜素</span>
+              <span class="chip">多酚</span>
+              <span class="chip">SOD</span>
+              <span class="chip">有机酸</span>
+              <span class="chip">植物甾醇</span>
+            </div>
+            <p class="card__desc muted">
+              注：以上为演示用成分结构示例；实际含量以对应批次的检测报告为准（可在“产品溯源”页查看）。
+            </p>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title">营养与成分潜力</h2>
+            <p class="card__desc">
+              适用于功能性食品与药妆原料，支持“内服外养”的健康消费趋势。
+            </p>
+            <div class="mascot-line">
+              <img class="mascot" src="./assets/mascot-cape.jpg" alt="沙棘拟人插画" />
+              <div class="mascot-line__text muted">小棘说：每天都要元气满满。</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title">棘遇产品的好处</h2>
+            <ul class="ul">
+              <li>原浆更清爽：0 添加理念，入口更纯粹</li>
+              <li>沙棘油更讲究：高精工艺提取，关注活性与稳定性</li>
+              <li>更安心：批次可查询，关键流程与摘要一目了然</li>
+            </ul>
+            <div class="divider"></div>
+            <p class="card__desc muted">
+              提示：具体到“哪片林地 / 何时采摘 / 质检摘要”等信息，可在【产品溯源】页输入批次号直接查看（演示版）。
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="card__title">小棘的小故事</h2>
+          <p class="card__desc muted">用三段小故事，讲清楚沙棘与棘遇的“好处”。</p>
+
+          <div class="story-grid">
+            <div class="story-card">
+              <img class="story-card__img" src="./assets/mascot-oil.jpg" alt="沙棘拟人插画" />
+              <div class="story-card__body">
+                <div class="story-card__title">故事 1｜小棘的“润润瓶”</div>
+                <div class="story-card__desc">沙棘油像一层小小的“润润盾”，让日常护理更舒适。</div>
+              </div>
+            </div>
+            <div class="story-card">
+              <img class="story-card__img" src="./assets/mascot-cape.jpg" alt="沙棘拟人插画" />
+              <div class="story-card__body">
+                <div class="story-card__title">故事 2｜小棘的元气披风</div>
+                <div class="story-card__desc">营养密度高的沙棘，总能把“元气感”带进忙碌的一天。</div>
+              </div>
+            </div>
+            <div class="story-card">
+              <img class="story-card__img" src="./assets/mascot-notebook.jpg" alt="沙棘拟人插画" />
+              <div class="story-card__body">
+                <div class="story-card__title">故事 3｜小棘的溯源小本本</div>
+                <div class="story-card__desc">从采摘到检测摘要，都能查到“看得到的证据”，买得更安心。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">品牌：棘遇</div>
+      </div>
+    </footer>
+
+    <script src="./trace-data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
